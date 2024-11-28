@@ -18,7 +18,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-Button btnBlack, yellowBtn, redBtn, purpleBtn, greenBtn;
+Button blackBtn, yellowBtn, redBtn, purpleBtn, greenBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +30,10 @@ Button btnBlack, yellowBtn, redBtn, purpleBtn, greenBtn;
             return insets;
         });
 
-
+        blackBtn = findViewById(R.id.blackButton);
+        yellowBtn = findViewById(R.id.yelloButton);
+        redBtn = findViewById(R.id.redButton);
+        purpleBtn = findViewById(R.id.purpleButton);
+        greenBtn = findViewById(R.id.greenButton);
     }
 }
