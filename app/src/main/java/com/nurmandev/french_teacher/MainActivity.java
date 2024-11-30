@@ -1,8 +1,10 @@
 package com.nurmandev.french_teacher;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -35,5 +37,18 @@ Button blackBtn, yellowBtn, redBtn, purpleBtn, greenBtn;
         redBtn = findViewById(R.id.redButton);
         purpleBtn = findViewById(R.id.purpleButton);
         greenBtn = findViewById(R.id.greenButton);
+
+
+        redBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MediaPlayer mediaPlayer = MediaPlayer.create(
+                        getApplicationContext(),
+                        R.raw.red
+                );
+
+                mediaPlayer.start();
+            }
+        });
     }
 }
