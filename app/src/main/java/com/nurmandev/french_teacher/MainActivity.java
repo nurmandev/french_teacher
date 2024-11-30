@@ -18,7 +18,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
 
 Button blackBtn, yellowBtn, redBtn, purpleBtn, greenBtn;
     @Override
@@ -39,16 +39,36 @@ Button blackBtn, yellowBtn, redBtn, purpleBtn, greenBtn;
         greenBtn = findViewById(R.id.greenButton);
 
 
-        redBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MediaPlayer mediaPlayer = MediaPlayer.create(
-                        getApplicationContext(),
-                        R.raw.red
-                );
+        redBtn.setOnClickListener(this);
+        blackBtn.setOnClickListener(this);
+        yellowBtn.setOnClickListener(this);
+        purpleBtn.setOnClickListener(this);
+        greenBtn.setOnClickListener(this);
 
-                mediaPlayer.start();
-            }
-        });
+    }
+
+    @Override
+    public void onClick(View v) {
+        int clickedBtnId = v.getId();
+
+        if (clickedBtnId == R.id.redButton) {
+            PlaySound(R.raw.red);
+        } else if (clickedBtnId == R.id.blackButton) {
+            PlaySound(R.raw.black);
+        } else if (clickedBtnId == R.id.yelloButton) {
+            PlaySound(R.raw.yellow);
+        } else if (clickedBtnId == R.id.purpleButton) {
+            PlaySound(R.raw.purple);
+        } else if (clickedBtnId == R.id.greenButton) {
+            PlaySound(R.raw.green);
+        }
+    }
+
+    public void PlaySound(int id){
+        MediaPlayer mediaPlayer = MediaPlayer.create(
+                this,
+                id
+        );
+        mediaPlayer.start();
     }
 }
